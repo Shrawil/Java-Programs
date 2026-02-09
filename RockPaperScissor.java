@@ -11,16 +11,21 @@ public class RockPaperScissor {
         String botChoice = options[random.nextInt(3)];
         String userChoice;
 
-        System.out.print("Enter your move (rock, paper, scissor) : ");
-        userChoice = scanner.nextLine().toLowerCase();
+        while (true) {
+            System.out.print("Enter your move (rock, paper, scissor) : ");
+            userChoice = scanner.nextLine().toLowerCase();
 
-        if (userChoice.equals(botChoice)) System.out.println("Its a tie!");
+            if (userChoice.equals(botChoice)) System.out.println("Its a tie!");
 
-        else if ((userChoice.equals("rock") && botChoice.equals("paper")) || (userChoice.equals("paper") && botChoice.equals("rock")) || (userChoice.equals("scissor") && botChoice.equals("paper"))) { 
-            System.out.println("You won!"); 
+            else if ((userChoice.equals("rock") && botChoice.equals("paper")) || (userChoice.equals("paper") && botChoice.equals("rock")) || (userChoice.equals("scissor") && botChoice.equals("paper"))) { 
+                System.out.println("You won!"); 
+            }
+
+            else System.out.println("You lose!");
+            System.out.print("Would you like to play again (yes/no) : ");
+            userChoice = scanner.nextLine().toLowerCase();
+            if (userChoice.equals("no")) break;
         }
-
-        else System.out.println("You lose!");
         scanner.close();
     }
 }
